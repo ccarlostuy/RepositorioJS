@@ -1,26 +1,18 @@
 version: 0.2
-
-
+env:
+  variables:
+    INPUT_FILE: "serverless.yml"
+    S3_BUCKET: ""
 phases:
   install:
-      runtime-versions:
-       nodejs: 14
-      commands:
-       - echo installing serverless framework
-       - npm install -g serverless
-  pre_build:
+    runtime-versions:
+      nodejs: 10
     commands:
-      - echo install pre build commands
+      - npm install
   build:
     commands:
-      - echo Installing NPM Packages
-      - npm install
-      - echo Running tests
-      - npm run test
-  post_build:
-    commands:
-      - echo Entering Post_Build Phase
+      - aws cloudformation package --template $INPUT_FILE --s3-bucket $S3_BUCKET --output-template post-saml.yaml
 artifacts:
-   files:
-    - '**/*'
-
+    files:
+        - post-saml.yaml
+        - beta.json
