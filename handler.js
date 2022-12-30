@@ -5,6 +5,10 @@ module.exports.helloworld = async (event,context,callback) => {
     statusCode: 200,
     body: JSON.stringify(
       {
+        if(condicion==1){
+        message: printHelloWorld(),
+        }
+        
         message: printHelloWorld(),
         input: event,
       },
