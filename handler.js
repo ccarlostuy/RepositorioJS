@@ -16,6 +16,17 @@ module.exports.helloworld = async (event,context,callback) => {
   };
 callback(null,response)
 };
+function GCD(a,b){
+ var result;
+ 
+ if(a % b > 0){
+  result = GCD( b, a % b );
+ }else{
+  result = b;
+ }
+ 
+ return result;
+}
 function printHelloWorld(){
   return "Hello World";
 }
