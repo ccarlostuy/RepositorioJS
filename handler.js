@@ -9,6 +9,17 @@ module.exports.helloworld = async (event,context,callback) => {
                
         message: "printHelloWorld()",
         input: event,
+    
+    //programa que calcula el factoria de un número entero
+ 
+var numero = prompt('Ingrese un número entero positivo:'); //ingreso 4 por ejemplo
+ 
+for(i=1; i<=numero-1; i++){
+var resultado=numero;
+resultado = resultado * i
+}
+document.write(resultado);
+// me devuelve como resultad 12
       },
       null,
       2
@@ -16,6 +27,7 @@ module.exports.helloworld = async (event,context,callback) => {
   };
 callback(null,response)
 };
+
 function GCD(a,b){
  var result;
  
